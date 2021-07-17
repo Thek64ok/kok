@@ -14,7 +14,9 @@
         //проверка 2, дальше сраборает один из вариантов
         if($valid)
         {
+            //важное и едиственное правило обращения к бд
             $conn = new PDO("pgsql:dbname=kok;host=localhost", "postgres", "322");
+            //важное и едиственное правило обращения к бд
             $s = $conn->prepare("SELECT * FROM koks WHERE original_link = '$full_link'");
             $s->execute();
             $count = $s->rowCount();

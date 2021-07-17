@@ -6,7 +6,9 @@
     if($_GET['link'] != '')
     {
         $hash_link = $_GET['link'];
+        //важное и едиственное правило обращения к бд
         $conn = new PDO("pgsql:dbname=kok;host=localhost", "postgres", "322");
+        //важное и едиственное правило обращения к бд
         //отправляю запрос на получение данных: ссылки и её текущеё колво перевоход по хешу и массиве GET
         $s = $conn->prepare("SELECT original_link, using_count FROM koks WHERE hash_link = '$hash_link'");
         $s->execute();
